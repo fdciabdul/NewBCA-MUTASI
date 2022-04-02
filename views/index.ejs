@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="img/logo/logo.png" rel="icon">
+    <title>Login Bank -</title>
+    <link href="https://indrijunanda.github.io/RuangAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://indrijunanda.github.io/RuangAdmin/css/ruang-admin.min.css" rel="stylesheet">
+    <link href="https://indrijunanda.github.io/RuangAdmin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Bootstrap DatePicker -->  
+    <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" >
+    <!-- Bootstrap Touchspin -->
+    <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css" rel="stylesheet" >
+    <!-- ClockPicker -->
+    <link href="https://indrijunanda.github.io/RuangAdmin/vendor/clock-picker/clockpicker.css" rel="stylesheet">
+    <!-- RuangAdmin CSS -->
+    <script src="https://kit.fontawesome.com/c997be33cc.js" crossorigin="anonymous"></script>
+    <link href="https://indrijunanda.github.io/RuangAdmin/css/ruang-admin.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gradient-login">
+    <!-- Login Content -->
+    <div class="container-login">
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-12 col-md-9">
+          <div class="card shadow-sm my-5">
+            <div class="card-body p-0">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="login-form">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4">Login Ibanking</h1>
+                    </div>
+                    <form class="user" method="POST" action="/check">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" name="pass" id="exampleInputPassword" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                      </div>
+                      <div class="form-group">
+                      
+                          <select id="select-bank-group" class="form-control" name="bank">
+                            <option value='bca'>BCA Mobile</option>
+                            <option value='bri'>BRI</option>
+                            <option value='bni'>BNI Mobile</option>
+                            <option value='danamon'>Danamon</option>
+                            <option value='mandiri3'>Mandiri Online</option>
+                          </select>
+                   
+                      </div>
+                   
+                        <div class="form-group" id="simple-date1">
+                           <label for="oneYearView">Date Awal</label>
+                             <div class="input-group date">
+                               <div class="input-group-prepend">
+                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                               </div>
+                               <input type="text" name="date_begin" class="form-control" value="<%= inputdate %>" id="simpleDataInput">
+                             </div>
+                     </div>
+                       
+                         <div class="form-group" id="simple-date1">
+                            <label for="oneYearView">Date Awal</label>
+                              <div class="input-group date">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                </div>
+                                <input type="text" name="date_end" class="form-control" value="<%= inputdate %>" id="simpleDataInput">
+                              </div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-danger btn-block">Login</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery/jquery.min.js"></script>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- <script src="https://indrijunanda.github.io/RuangAdmin/js/ruang-admin.min.js"></script> -->
+    <!-- Page level plugins -->
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+   <!-- Select2 -->
+   <script src="https://indrijunanda.github.io/RuangAdmin/vendor/select2/dist/js/select2.min.js"></script>
+    <!-- Bootstrap Datepicker -->
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap Touchspin -->
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
+    <!-- ClockPicker -->
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/clock-picker/clockpicker.js"></script>
+    <!-- Page level custom scripts -->
+
+   <script>
+      $(document).ready(function () {
+  
+  
+        $('.select2-single').select2();
+  
+        // Select2 Single  with Placeholder
+        $('.select2-single-placeholder').select2({
+          placeholder: "Select a Province",
+          allowClear: true
+        });      
+  
+        // Select2 Multiple
+        $('.select2-multiple').select2();
+  
+        // Bootstrap Date Picker
+        $('#simple-date1 .input-group.date').datepicker({
+          format: 'dd-mm-yyyy',
+          todayBtn: 'linked',
+          todayHighlight: true,
+          autoclose: true,        
+        });
+
+      });
+    </script>
+  </body>
+  
+  </html>

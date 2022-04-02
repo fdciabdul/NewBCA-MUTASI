@@ -1,0 +1,306 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="img/logo/logo.png" rel="icon">
+  <title><%= username %></title>
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://indrijunanda.github.io/RuangAdmin/css/ruang-admin.min.css" rel="stylesheet">
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- Bootstrap DatePicker -->  
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" >
+  <!-- Bootstrap Touchspin -->
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-touchspin/css/jquery.bootstrap-touchspin.css" rel="stylesheet" >
+  <!-- ClockPicker -->
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/clock-picker/clockpicker.css" rel="stylesheet">
+  <!-- RuangAdmin CSS -->
+  <script src="https://kit.fontawesome.com/c997be33cc.js" crossorigin="anonymous"></script>
+  <link href="https://indrijunanda.github.io/RuangAdmin/css/ruang-admin.min.css" rel="stylesheet">
+</head>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#"><%= akun.username %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+     
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container-fluid" id="container-wrapper">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Data akun bank <%= akun.bank %> [<%= akun.username %>] </h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="./">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Charts</li>
+    </ol>
+  </div>
+          
+          
+  <div class="row">
+    <!-- Area Charts -->
+    <div class="col-lg-12">
+      <div class="card mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Detail Akun <%= username %></h6>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="/update-tgl">
+        
+            
+              <div class="col-md-6">
+                          <label for="date-end" class="control-label">To - end</label>
+                          <div class="form-group" id="simple-date1">
+                            <label for="oneYearView">Date Awal</label>
+                              <div class="input-group date">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                </div>
+                                <input type="text" name="date" class="form-control" value="<%= inputdate %>" id="simpleDataInput">
+                              </div>
+                              <input type="hidden" name="user" class="form-control" value="<%= akun.username %>">
+                              <input type="hidden" name="link" class="form-control" value="<%= akun.link %>">
+                              <label for="oneYearView">Date Akhir</label>
+                              <div class="input-group date">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                </div>
+                                <input type="text" name="date1" class="form-control" value="<%= inputdate %>" id="simpleDataInput">
+                              </div>
+                              
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                              <i class="fa fa-repeat"></i> New Date
+                            </button>
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+              <div class="table-responsive">
+									<table class="table table-stripped table-condensed">
+										<thead>
+											<tr>
+                        <th>Link Unik</th>
+												<th>Username</th>
+												<th>Last Login</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+                       <td><%= akun.link %></td>
+                        <td><%= akun.username %></td>
+                        <td><%=inputdate %></td>
+                      </tr>
+										</tbody>
+									</table>
+								</div>
+                   
+              </div>
+          <!-- Row -->
+          <!-- <div class="col-xl-6 col-lg-12 col-md-9"> -->
+          
+         
+              <!-- Row -->
+              <div class="row">
+                <!-- Area Charts -->
+                <div class="col-lg-12">
+                  <div class="card mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <h6 class="m-0 font-weight-bold text-primary">Data Mutasi</h6>
+                    </div>
+                    <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-bordered table-flush" id="dataTable">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>Tanggal</th>
+                        <th>Keterangan</th>
+                        <th>Nominal </th>
+                        <th>Jenis</th>
+                        <th>Saldo Akhir</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Tanggal</th>
+                        <th>Keterangan</th>
+                        <th>Nominal </th>
+                        <th>Jenis</th>
+                        <th>Saldo Akhir</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                        <% for(var i=0; i < result.length; i++) { %>
+                          <% if(result[i].mutasi == "DB"){ %> 
+                            <tr class='table-danger'>
+                              <td><%= result[i].tanggal %></td>
+                              <td><%= result[i].keterangan %></td>
+                              <td><%= result[i].nominal %></td>    
+                              <td><%= result[i].mutasi %></td>   
+                              <td><%= result[i].saldoakhir %></td>                                          
+                              </tr>
+                         <% }else{ %>
+                          <tr class='table-info'>
+                            <td><%= result[i].tanggal %></td>
+                            <td><%= result[i].keterangan %></td>
+                            <td><%= result[i].nominal %></td>    
+                            <td><%= result[i].mutasi %></td>    
+                            <td><%= result[i].saldoakhir %></td>    
+                          <% } }%> 
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+            <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery/jquery.min.js"></script>
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- <script src="https://indrijunanda.github.io/RuangAdmin/js/ruang-admin.min.js"></script> -->
+  <!-- Page level plugins -->
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+ <!-- Select2 -->
+ <script src="https://indrijunanda.github.io/RuangAdmin/vendor/select2/dist/js/select2.min.js"></script>
+  <!-- Bootstrap Datepicker -->
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <!-- Bootstrap Touchspin -->
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
+  <!-- ClockPicker -->
+  <script src="https://indrijunanda.github.io/RuangAdmin/vendor/clock-picker/clockpicker.js"></script>
+  <!-- Page level custom scripts -->
+  <script>
+    var datatables_params = {
+			'paging'				: true,
+			'searching'				: true,
+			"lengthMenu"			: [[25, 50, 100, 500, 1000, 5000, 10000, -1], [25, 50, 100, 500, 1000, 5000, 10000, "All"]],
+			"pageLength"			: 100,
+			"pagingType"			: "simple_numbers"
+		}
+    $(document).ready(function () {
+      $('#dataTable').DataTable(datatables_params); // ID From dataTable 
+      $('#dataTableHover').DataTable(datatables_params); // ID From dataTable with Hover
+    });
+    $(document).ready(function(){
+    $("*").dblclick(function(e){
+    e.preventDefault();
+  });
+});
+  </script>
+ <script>
+    $(document).ready(function () {
+
+
+      $('.select2-single').select2();
+
+      // Select2 Single  with Placeholder
+      $('.select2-single-placeholder').select2({
+        placeholder: "Select a Province",
+        allowClear: true
+      });      
+
+      // Select2 Multiple
+      $('.select2-multiple').select2();
+
+      // Bootstrap Date Picker
+      $('#simple-date1 .input-group.date').datepicker({
+        format: 'dd-mm-yyyy',
+        todayBtn: 'linked',
+        todayHighlight: true,
+        autoclose: true,        
+      });
+
+      $('#simple-date2 .input-group.date').datepicker({
+        startView: 1,
+        format: 'dd/mm/yyyy',        
+        autoclose: true,     
+        todayHighlight: true,   
+        todayBtn: 'linked',
+      });
+
+      $('#simple-date3 .input-group.date').datepicker({
+        startView: 2,
+        format: 'dd/mm/yyyy',        
+        autoclose: true,     
+        todayHighlight: true,   
+        todayBtn: 'linked',
+      });
+
+      $('#simple-date4 .input-daterange').datepicker({        
+        format: 'dd/mm/yyyy',        
+        autoclose: true,     
+        todayHighlight: true,   
+        todayBtn: 'linked',
+      });    
+
+      // TouchSpin
+
+      $('#touchSpin1').TouchSpin({
+        min: 0,
+        max: 100,                
+        boostat: 5,
+        maxboostedstep: 10,        
+        initval: 0
+      });
+
+      $('#touchSpin2').TouchSpin({
+        min:0,
+        max: 100,
+        decimals: 2,
+        step: 0.1,
+        postfix: '%',
+        initval: 0,
+        boostat: 5,
+        maxboostedstep: 10
+      });
+
+      $('#touchSpin3').TouchSpin({
+        min: 0,
+        max: 100,
+        initval: 0,
+        boostat: 5,
+        maxboostedstep: 10,
+        verticalbuttons: true,
+      });
+
+      $('#clockPicker1').clockpicker({
+        donetext: 'Done'
+      });
+
+      $('#clockPicker2').clockpicker({
+        autoclose: true
+      });
+
+      let input = $('#clockPicker3').clockpicker({
+        autoclose: true,
+        'default': 'now',
+        placement: 'top',
+        align: 'left',
+      });
+
+      $('#check-minutes').click(function(e){        
+        e.stopPropagation();
+        input.clockpicker('show').clockpicker('toggleView', 'minutes');
+      });
+
+    });
+  </script>
+</body>
+
+</html>
