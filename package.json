@@ -142,7 +142,7 @@
     "puppeteer-extra-plugin-user-preferences": "^2.3.1",
     "qs": "^6.9.7",
     "railroad-diagrams": "^1.0.0",
-    "randexp": "^0.4.6",
+    "randexp": "^0.5.0",
     "raw-body": "^2.4.3",
     "readable-stream": "^3.6.0",
     "ret": "^0.1.15",
