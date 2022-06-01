@@ -16,7 +16,7 @@
     "base64-js": "^1.5.1",
     "balanced-match": "^1.0.2",
     "basic-auth": "^2.0.1",
-    "bl": "^4.1.0",
+    "bl": "^5.0.0",
     "brace-expansion": "^1.1.11",
     "body-parser": "^1.19.2",
     "buffer": "^5.7.1",
