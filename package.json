@@ -14,7 +14,7 @@
     "arr-union": "^3.1.0",
     "async": "^3.0.0",
     "base64-js": "^1.5.1",
-    "balanced-match": "^1.0.2",
+    "balanced-match": "^2.0.0",
     "basic-auth": "^2.0.1",
     "bl": "^4.1.0",
     "brace-expansion": "^1.1.11",
