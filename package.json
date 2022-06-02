@@ -151,7 +151,7 @@
     "safe-buffer": "^5.2.1",
     "safer-buffer": "^2.1.2",
     "selderee": "^0.6.0",
-    "send": "^0.17.2",
+    "send": "^0.18.0",
     "seq-queue": "^0.0.5",
     "serve-static": "^1.14.2",
     "setprototypeof": "^1.2.0",
