@@ -145,7 +145,7 @@
     "randexp": "^0.4.6",
     "raw-body": "^2.4.3",
     "readable-stream": "^3.6.0",
-    "ret": "^0.1.15",
+    "ret": "^0.4.0",
     "range-parser": "^1.2.1",
     "rimraf": "^3.0.2",
     "safe-buffer": "^5.2.1",
